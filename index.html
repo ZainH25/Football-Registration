@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rising Stars U22 Football Cup — Registration</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=Bebas+Neue&family=Archivo+Black&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#D4AF37;
+  --gold2:#F2CD5C;
+  --dark:#000000;
+  --card:#0a0a0a;
+  --line:rgba(255,255,255,0.08);
+  --goldline:rgba(212,175,55,0.2);
+  --text:#FFFFFF;
+  --muted:#a0a0a0;
+}
+html,body{
+  font-family:'Space Grotesk',sans-serif;
+  background:#000000;
+  color:var(--text);overflow-x:hidden;
+  scroll-behavior: smooth;
+}
+
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background: radial-gradient(circle at 50% 30%, rgba(212,175,55,0.03), transparent 60%);
+}
+
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+.section{position:relative;z-index:1;padding:60px 0;}
+
+/* ============ HERO SECTION ============ */
+.hero{
+  padding:40px 0 40px;
+}
+.hero-image-container {
+  width: 100%;
+  height: 250px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  border: 1px solid var(--line);
+  position: relative;
+}
+.hero-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Fits the whole image perfectly */
+  object-position: top; /* Aligns to the top */
+  /* Opacity removed! Image will be 100% bright */
+}
+/* The gradient shadow ::after block was completely removed! */
+
+.hero-split {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: center;
+}
+@media(max-width:850px){
+  .hero-split { grid-template-columns: 1fr; text-align: center; }
+}
+
+.brand-display {
+  position: relative;
+  background: #000;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.giant-year {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: clamp(8rem, 22vw, 16rem);
+  line-height: 0.8;
+  color: #ffffff;
+  letter-spacing: -6px;
+  text-align: center;
+  position: relative;
+  user-select: none;
+  opacity: 0.9;
+}
+
+.branding-text {
+  text-align: center;
+  z-index: 3;
+}
+.poster-title{
+  font-family:'Archivo Black',sans-serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.1;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.poster-sub{
+  font-family:'Bebas Neue',sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 5px;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.meta-panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: 32px;
+  border-radius: 4px;
+}
+.meta-panel h3 {
+  font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 2px;
+  margin-bottom: 20px; border-bottom: 1px solid var(--line); padding-bottom: 8px;
+}
+.info-row {
+  display: flex; justify-content: space-between; padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.03); font-size: 0.95rem;
+}
+.info-row .lbl { color: var(--muted); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
+.info-row .val { font-weight: 600; text-align: right; }
+.info-row .val.highlight { color: var(--gold2); font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 1px;}
+
+.contact-box { margin-top: 24px; display: flex; gap: 10px; }
+.contact-chip{
+  flex: 1; background: transparent; border: 1px solid var(--line);
+  padding: 12px; font-size: 0.85rem; color: #fff; font-weight: 600;
+  text-decoration: none; text-align: center; border-radius: 2px; transition: all 0.2s;
+}
+.contact-chip:hover{ border-color: var(--gold); background: rgba(212,175,55,0.05); }
+
+.cta-btn{
+  width: 100%; margin-top: 20px;
+  background: #ffffff; color: #000000; border: none; padding: 16px;
+  font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 2px;
+  border-radius: 2px; cursor: pointer; text-transform: uppercase;
+  font-weight: bold; transition: all 0.25s;
+}
+.cta-btn:hover{ background: var(--gold2); transform: translateY(-2px); }
+
+/* ============ RULES ============ */
+.rules-section h2, .form-section h2 {
+  font-family:'Archivo Black',sans-serif; font-size: 2rem; letter-spacing: -0.5px;
+  text-align:center; margin-bottom:6px; text-transform:uppercase;
+}
+.section-sub{text-align:center; color:var(--muted); font-size:0.85rem; margin-bottom:40px; letter-spacing:1px; text-transform: uppercase;}
+
+.rules-toggle{ text-align:center; margin-bottom:20px; }
+.rules-toggle button{
+  background:transparent; border:1px solid var(--line); color:#ffffff;
+  padding:12px 30px; border-radius:4px; font-weight:600; cursor:pointer; font-family:inherit;
+  text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; transition: all 0.2s;
+}
+.rules-toggle button:hover { border-color: var(--gold2); color: var(--gold2); }
+.rules-body{display:none; background:var(--card); border:1px solid var(--line); border-radius:4px; padding:32px;}
+.rules-body.open{display:block; animation: fadeDown 0.3s ease-out;}
+@keyframes fadeDown { from {opacity:0; transform:translateY(-10px);} to {opacity:1; transform:translateY(0);} }
+.rules-body h4{color:var(--gold); font-size:1rem; margin:20px 0 8px; letter-spacing:0.5px; text-transform: uppercase; font-family: 'Bebas Neue', sans-serif;}
+.rules-body h4:first-child{margin-top:0;}
+.rules-body ul, .rules-body ol{padding-left:20px; color:var(--muted); font-size:0.87rem; line-height:1.8;}
+.rules-body p{color:var(--muted); font-size:0.87rem; line-height:1.8; margin-bottom: 12px;}
+
+/* ============ HIGH-CONTRAST LIGHT FORM ARCHITECTURE ============ */
+.form-layout-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 30px;
+}
+@media(max-width:900px){
+  .form-layout-grid { grid-template-columns: 1fr; }
+  .animation-sticky-holder { display: none; }
+}
+
+.animation-sticky-holder {
+  position: sticky; top: 40px; height: calc(100vh - 80px);
+  background: var(--card); border: 1px solid var(--line); border-radius: 4px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 40px; text-align: center;
+}
+
+/* Static Graphic for Sticky Panel */
+.static-graphic {
+  font-size: 5rem;
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
+.live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.1);
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  color: var(--gold2);
+  border: 1px solid var(--goldline);
+}
+.pulse-dot {
+  width: 8px; height: 8px;
+  background: #ff3b3b;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 59, 59, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(255, 59, 59, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 59, 59, 0); }
+}
+
+.animation-sticky-holder h3 {
+  font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 2px;
+  margin-bottom: 10px; text-transform: uppercase;
+}
+.animation-sticky-holder p {
+  color: var(--muted); font-size: 0.85rem; line-height: 1.6; max-width: 280px;
+}
+
+/* Bright White Form Cards */
+.form-card{
+  background: #ffffff; color: #000000;
+  border-radius: 8px; padding:32px 26px; margin-bottom:20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+.form-card h3{
+  font-family:'Bebas Neue',sans-serif; font-size:1.5rem; letter-spacing:1.5px;
+  color:#000000; margin-bottom:24px; text-transform:uppercase;
+  border-bottom: 1px solid #eaeaea; padding-bottom:8px;
+}
+.form-card label{
+  display:block; font-size:0.75rem; color:#555555; margin-bottom:6px; 
+  letter-spacing:1px; text-transform: uppercase; font-weight: 600;
+}
+.form-card input, .form-card select, .form-card textarea{
+  width:100%; background:transparent; border:none;
+  border-bottom:2px solid #e0e0e0; padding:12px 4px; color:#000000; 
+  font-family:inherit; font-size:1rem; margin-bottom:24px; transition: border-color 0.2s;
+  border-radius: 0;
+}
+.form-card input:focus, .form-card select:focus{outline:none; border-bottom-color:#000000;}
+.form-card input::placeholder{color:#a0a0a0;}
+
+.grid2{display:grid; grid-template-columns: 1fr 1fr; gap:16px;}
+.grid3{display:grid; grid-template-columns: 1fr 1fr 1fr; gap:16px;}
+@media(max-width:600px){.grid2, .grid3{grid-template-columns: 1fr; gap: 0;}}
+
+/* Light Player Blocks */
+.player-block{
+  border:1px solid #e0e0e0; border-radius:6px; padding:24px 16px 12px; margin-bottom:20px;
+  background:#fafafa; position:relative;
+}
+.player-num{
+  position:absolute; top:-10px; left:14px; background:#000000; color:#ffffff;
+  font-weight:700; font-size:0.7rem; padding:4px 12px; border-radius:2px;
+  font-family:'Bebas Neue',sans-serif; letter-spacing:1px;
+}
+.remove-player{
+  position:absolute; top:12px; right:14px; background:none; border:none;
+  color:#ff3b3b; cursor:pointer; font-size:0.75rem; text-transform: uppercase; font-weight: 700;
+}
+#playersContainer{margin-top:16px;}
+
+.add-btn{
+  width:100%; background:transparent; border:2px dashed #cccccc;
+  color:#000000; padding:16px; border-radius:6px; font-weight:700; font-size: 0.9rem;
+  cursor:pointer; font-family:inherit; margin-top:4px; transition:all 0.2s;
+  text-transform: uppercase; letter-spacing: 1px;
+}
+.add-btn:hover{ background:#f0f0f0; border-color: #000000; }
+
+.submit-btn{
+  width:100%; background:#000000; color:#ffffff;
+  border:none; padding:20px; font-family:'Bebas Neue',sans-serif; font-size:1.5rem;
+  letter-spacing:2px; border-radius:6px; cursor:pointer; text-transform:uppercase;
+  font-weight: bold; margin-top:10px; transition:all 0.25s;
+}
+.submit-btn:hover{ background: var(--gold2); color: #000; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(242, 205, 92, 0.3);}
+.submit-btn:disabled{opacity:0.4; cursor:not-allowed; transform:none;}
+
+.consent-row{display:flex; align-items:flex-start; gap:12px; margin:14px 0 24px; font-size:0.85rem; color:#444; line-height: 1.5; font-weight: 500;}
+.consent-row input{width:18px; height: 18px; margin:2px 0 0; accent-color: #000;}
+
+/* ============ SUCCESS CARD ============ */
+.success-card{
+  display:none; text-align:center; background:var(--card); border:1px solid var(--line);
+  border-radius:4px; padding:60px 30px;
+}
+.success-card.open{display:block; animation: fadeDown 0.4s ease-out;}
+.success-card .big-emoji { font-size: 4rem; margin-bottom: 10px; }
+.success-card h2{font-family:'Archivo Black',sans-serif; font-size:2.2rem; color:#ffffff; margin:10px 0 10px; text-transform:uppercase;}
+.success-card p{color:var(--muted); line-height:1.8; font-size: 0.95rem;}
+
+footer{text-align:center; padding:40px 0 60px; color:#555; font-size:0.8rem; letter-spacing: 0.5px; border-top: 1px solid var(--line); margin-top: 40px;}
+
+.toast{
+  position:fixed; bottom:30px; left:50%; transform:translateX(-50%);
+  background:#ffffff; color:#000000;
+  padding:14px 28px; border-radius:4px; font-weight:700; font-size:0.9rem;
+  z-index:9999; opacity:0; transition:opacity 0.3s; pointer-events:none;
+  text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  text-align: center;
+}
+.toast.show{opacity:1;}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO & POSTER ============ -->
+<div class="section hero">
+  <div class="wrap">
+    
+    <!-- Atmospheric Football Image (Bright and Clean!) -->
+    <div class="hero-image-container">
+      <img src="./assets/footballbackground.jpg" alt="Rising Stars Poster">
+    </div>
+
+    <div class="hero-split">
+      <!-- Left Content Graphic -->
+      <div class="brand-display">
+        <div class="giant-year">26</div>
+        <div class="branding-text">
+          <h1 class="poster-title">Rising Stars</h1>
+          <div class="poster-sub">U22 • 6-A-Side Football Cup</div>
+        </div>
+      </div>
+
+      <!-- Right Content Minimal Info Panel Deck -->
+      <div class="meta-panel">
+        <h3>Tournament Summary</h3>
+        <div class="info-row"><span class="lbl">Format</span><span class="val">6-A-Side (5 + 1 GK)</span></div>
+        <div class="info-row"><span class="lbl">Tournament Dates</span><span class="val">25–26 July 2026</span></div>
+        <div class="info-row"><span class="lbl">Venue Location</span><span class="val">Friends Arena, Bengaluru</span></div>
+        <div class="info-row"><span class="lbl">Entry Fee Per Team</span><span class="val highlight">₹3,000</span></div>
+        <div class="info-row"><span class="lbl">🥇 Champions Pool</span><span class="val highlight" style="color:var(--gold);">₹10,000</span></div>
+        <div class="info-row"><span class="lbl">🥈 Runners Reward</span><span class="val highlight">₹6,000</span></div>
+        
+        <div class="contact-box">
+          <a class="contact-chip" href="tel:+919589780584">📞 Call Admin 1</a>
+          <a class="contact-chip" href="tel:+918197907296">📞 Call Admin 2</a>
+        </div>
+        <a href="#registerForm"><button class="cta-btn">Register Team Now →</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ RULES ============ -->
+<div class="section rules-section" id="rulesSection">
+  <div class="wrap">
+    <h2>Rules &amp; Regulations</h2>
+    <div class="section-sub">Player Verification Protocols</div>
+    
+    <div class="rules-toggle">
+      <button onclick="toggleRules()" id="rulesBtn">View Full Rules ▾</button>
+    </div>
+    
+    <div class="rules-body" id="rulesBody">
+      <h4>1. Eligibility</h4>
+      <ul>
+        <li>Tournament is open to players 22 years of age or below.</li>
+        <li>Players must carry a valid government-issued ID or college/school ID for age verification.</li>
+        <li>Any team found using an overage player will be disqualified.</li>
+      </ul>
+
+      <h4>2. Team Composition</h4>
+      <ul>
+        <li>6 players on the field (5 outfield players + 1 goalkeeper).</li>
+        <li>Maximum 10 players can be registered per team.</li>
+        <li>Minimum 4 players are required to start a match.</li>
+      </ul>
+
+      <h4>3. Match Duration</h4>
+      <ul>
+        <li>League Stage: 20 minutes (10 minutes each half with a 2-minute halftime).</li>
+        <li>Semi-Finals &amp; Final: 24 minutes (12 minutes each half with a 2-minute halftime).</li>
+        <li>Referee’s decision on time is final.</li>
+      </ul>
+
+      <h4>4. Kick-Off</h4>
+      <ul>
+        <li>Teams must report 15 minutes before kick-off.</li>
+        <li>A toss will decide the kick-off and choice of ends.</li>
+      </ul>
+
+      <h4>5. Substitutions</h4>
+      <ul>
+        <li>Rolling substitutions are allowed.</li>
+        <li>Substitutions can only be made when the ball is out of play and with the referee’s permission.</li>
+      </ul>
+
+      <h4>6. Offside Rule</h4>
+      <ul>
+        <li>No offside rule.</li>
+      </ul>
+
+      <h4>7. Restarts</h4>
+      <ul>
+        <li>Kick-ins replace throw-ins.</li>
+        <li>Goal kicks must be taken from inside the penalty area.</li>
+        <li>Opponents must stand at least 5 meters away during free kicks, corners, and kick-ins.</li>
+      </ul>
+
+      <h4>8. Fouls &amp; Misconduct</h4>
+      <ul>
+        <li>Dangerous tackles, abusive language, and violent conduct will not be tolerated.</li>
+        <li>Slide tackles are not allowed (except the goalkeeper inside the penalty area if permitted by the referee).</li>
+        <li>Repeated fouls may result in disciplinary action.</li>
+      </ul>
+
+      <h4>9. Cards</h4>
+      <ul>
+        <li>Yellow Card: Warning.</li>
+        <li>Two Yellow Cards: Red Card and suspension for the remainder of the match.</li>
+        <li>Red Card: Immediate dismissal. Team plays with one player fewer for 2 minutes or until the opposition scores, whichever comes first.</li>
+        <li>Serious misconduct may lead to suspension from the tournament.</li>
+      </ul>
+
+      <h4>10. Goalkeeper Rules</h4>
+      <ul>
+        <li>Goalkeeper may use hands only inside the penalty area.</li>
+        <li>Goalkeeper cannot pick up a deliberate back-pass from a teammate.</li>
+      </ul>
+
+      <h4>11. Points System</h4>
+      <ul>
+        <li>Win – 3 points</li>
+        <li>Draw – 1 point</li>
+        <li>Loss – 0 points</li>
+      </ul>
+
+      <h4>12. League Stage Tie-Breakers</h4>
+      <p>If teams finish level on points:</p>
+      <ol>
+        <li>Goal Difference</li>
+        <li>Goals Scored</li>
+        <li>Head-to-Head Result</li>
+        <li>Fair Play Record</li>
+        <li>Penalty Shootout (if required)</li>
+      </ol>
+
+      <h4>13. Knockout Matches</h4>
+      <ul>
+        <li>If tied at full time, the match goes directly to a Penalty Shootout.</li>
+        <li>Each team takes 3 penalties.</li>
+        <li>Sudden death follows if still tied.</li>
+      </ul>
+
+      <h4>14. Walkover</h4>
+      <ul>
+        <li>Teams arriving 10 minutes late after the scheduled kick-off time will forfeit the match.</li>
+        <li>Walkover score: 3–0.</li>
+      </ul>
+
+      <h4>15. Equipment</h4>
+      <ul>
+        <li>Shin guards are recommended.</li>
+        <li>Players must wear proper football shoes suitable for turf.</li>
+        <li>No metal studs.</li>
+        <li>Teams should wear matching jerseys or bibs.</li>
+      </ul>
+
+      <h4>16. Referee’s Decision</h4>
+      <ul>
+        <li>The referee’s decision is final and binding.</li>
+        <li>No arguments or abusive behavior towards match officials will be tolerated.</li>
+      </ul>
+
+      <h4>17. Discipline</h4>
+      <ul>
+        <li>Any player or team involved in fighting, abuse, or misconduct may be disqualified without a refund.</li>
+        <li>Alcohol, drugs, or smoking on the playing area are strictly prohibited.</li>
+      </ul>
+
+      <h4>18. Organizer’s Rights</h4>
+      <ul>
+        <li>Tournament organizers reserve the right to modify the schedule due to weather or unforeseen circumstances.</li>
+        <li>Any issue not covered in these rules will be decided by the organizing committee.</li>
+      </ul>
+
+      <p style="margin-top:20px; color:var(--gold2);"><strong style="font-family:'Bebas Neue', sans-serif; font-size:1.2rem; letter-spacing:1px;">FAIR PLAY:</strong> Respect opponents, referees, and organizers. Play with sportsmanship and enjoy the game.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ BRIGHT FORM ============ -->
+<div class="section form-section" id="registerForm">
+  <div class="wrap">
+    <h2>Team Registration</h2>
+    <div class="section-sub">Configure Squad Profiles Below</div>
+
+    <div class="form-layout-grid">
+      <!-- Form Input Column -->
+      <div id="formArea">
+        <div class="form-card">
+          <h3>🛡️ Team Foundation</h3>
+          <label>Team Name *</label>
+          <input type="text" id="teamName" placeholder="e.g. Thunder FC" required>
+          
+          <div class="grid2">
+            <div>
+              <label>Captain Name *</label>
+              <input type="text" id="captainName" placeholder="Full name" required>
+            </div>
+            <div>
+              <label>Captain Phone *</label>
+              <input type="tel" id="captainPhone" placeholder="10-digit number" required>
+            </div>
+          </div>
+          
+          <label>Captain Email</label>
+          <input type="email" id="captainEmail" placeholder="email@example.com">
+          <label>Team Base Location</label>
+          <input type="text" id="teamLocation" placeholder="e.g. Yelahanka, Bengaluru">
+        </div>
+
+        <div class="form-card">
+          <h3>👕 Roster Manifest (Min 4, Max 10)</h3>
+          <div id="playersContainer"></div>
+          <button type="button" class="add-btn" id="addPlayerBtn" onclick="addPlayer()">+ Add Player Profile</button>
+        </div>
+
+        <div class="form-card">
+          <h3>✅ Validation Sign-off</h3>
+          <div class="consent-row">
+            <input type="checkbox" id="agreeRules">
+            <label for="agreeRules" style="margin:0; cursor:pointer;">I affirm that all player information is true and our team aligns with the registration parameters, age brackets, and terms of the competitive grid.</label>
+          </div>
+          <button class="submit-btn" id="submitBtn" onclick="submitTeam()">Submit Team Registration ⚽</button>
+        </div>
+      </div>
+
+      <!-- Right Column Static Live Panel -->
+      <div class="animation-sticky-holder">
+        <div class="static-graphic">📋</div>
+        <div class="live-badge">
+          <div class="pulse-dot"></div> System Live
+        </div>
+        <h3>Match Engine Active</h3>
+        <p>Your entered team data will securely sync directly to our tournament operations database in real-time.</p>
+      </div>
+    </div>
+
+    <!-- Success Board -->
+    <div class="success-card" id="successCard">
+      <div class="big-emoji">✅🏆</div>
+      <h2>Team Synchronized!</h2>
+      <p>
+        Your roster slots are locked in place.<br>
+        Confirm arrangements with your team. Updates are tracking via the WhatsApp briefing pipeline.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  Rising Stars U22 Football Cup • 2026 • Friends Arena, Thammenahalli, Bengaluru
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const SHEET_URL = 'https://script.google.com/macros/s/AKfycbxtTeWNFtGmYKmGv5u_9PDYOU8QmIy3C2jSevVd0jGdPjYpVcp8yTL5Dy1eIovItbzT/exec';
+let playerCount = 0;
+let rulesViewed = false; // Validation flag
+
+// Intercept checkbox click to enforce reading rules
+document.getElementById('agreeRules').addEventListener('click', function(e) {
+  if(!rulesViewed) {
+    e.preventDefault(); // Stop the box from being checked
+    showToast('⚠️ Please view the Rules & Regulations first.');
+    // Scroll smoothly to rules section
+    window.scrollTo({
+      top: document.getElementById('rulesSection').offsetTop - 20, 
+      behavior: 'smooth'
+    });
+    // Visual hint
+    document.getElementById('rulesBtn').style.borderColor = '#F2CD5C';
+    document.getElementById('rulesBtn').style.color = '#F2CD5C';
+  }
+});
+
+function addPlayer(){
+  if(playerCount >= 10){ showToast('Maximum threshold of 10 players reached'); return; }
+  playerCount++;
+  const container = document.getElementById('playersContainer');
+  const block = document.createElement('div');
+  block.className = 'player-block';
+  block.dataset.idx = playerCount;
+  block.innerHTML = `
+    <div class="player-num">Player Slot ${playerCount}</div>
+    ${playerCount > 4 ? '<button type="button" class="remove-player" onclick="removePlayer(this)">Discard ✕</button>' : ''}
+    <div class="grid3">
+      <div>
+        <label>Full Name *</label>
+        <input type="text" class="p-name" placeholder="Player Name">
+      </div>
+      <div>
+        <label>Age *</label>
+        <input type="number" class="p-age" placeholder="Age" min="1" max="22">
+      </div>
+      <div>
+        <label>Position</label>
+        <input type="text" class="p-position" placeholder="GK / DEF / MID / FWD">
+      </div>
+    </div>
+    <div class="grid2">
+      <div>
+        <label>Contact Number</label>
+        <input type="tel" class="p-phone" placeholder="10-digit line">
+      </div>
+      <div>
+        <label>ID Identification Style</label>
+        <input type="text" class="p-id" placeholder="Student Card / Gov Proof">
+      </div>
+    </div>
+  `;
+  container.appendChild(block);
+}
+
+function removePlayer(btn){
+  btn.closest('.player-block').remove();
+  reindexPlayers();
+}
+
+function reindexPlayers() {
+  const blocks = document.querySelectorAll('.player-block');
+  playerCount = 0;
+  blocks.forEach((block) => {
+    playerCount++;
+    block.dataset.idx = playerCount;
+    block.querySelector('.player-num').textContent = `Player Slot ${playerCount}`;
+  });
+}
+
+// Pre-fill mandatory rows
+for(let i=0;i<4;i++) addPlayer();
+
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'), 3000);
+}
+
+function toggleRules(){
+  rulesViewed = true; // User has successfully triggered the rules
+  const body = document.getElementById('rulesBody');
+  const btn = document.getElementById('rulesBtn');
+  body.classList.toggle('open');
+  
+  // Reset border styling if it was highlighted
+  btn.style.borderColor = 'var(--line)';
+  btn.style.color = '#ffffff';
+  
+  btn.textContent = body.classList.contains('open') ? 'Hide Rules ▴' : 'View Full Rules ▾';
+}
+
+async function submitTeam(){
+  const teamName = document.getElementById('teamName').value.trim();
+  const captainName = document.getElementById('captainName').value.trim();
+  const captainPhone = document.getElementById('captainPhone').value.trim();
+  const agree = document.getElementById('agreeRules').checked;
+
+  if(!rulesViewed) {
+    showToast('⚠️ Please read the Rules & Regulations before submitting.');
+    return;
+  }
+  
+  if(!teamName || !captainName || !captainPhone){
+    showToast('⚠️ Incomplete mandatory team headers.');
+    return;
+  }
+  
+  if(!agree){
+    showToast('⚠️ You must accept the registration parameters.');
+    return;
+  }
+
+  const playerBlocks = document.querySelectorAll('.player-block');
+  const players = [];
+  playerBlocks.forEach(block=>{
+    const name = block.querySelector('.p-name').value.trim();
+    const age = block.querySelector('.p-age').value.trim();
+    const position = block.querySelector('.p-position').value.trim();
+    const phone = block.querySelector('.p-phone').value.trim();
+    const idType = block.querySelector('.p-id').value.trim();
+    if(name) players.push({name, age, position, phone, idType});
+  });
+
+  if(players.length < 4){
+    showToast('⚠️ Roster size minimum constraint violation (Min 4)');
+    return;
+  }
+
+  const payload = {
+    type: 'team_registration',
+    timestamp: new Date().toISOString(),
+    teamName, captainName, captainPhone, 
+    captainEmail: document.getElementById('captainEmail').value.trim(), 
+    teamLocation: document.getElementById('teamLocation').value.trim(),
+    players
+  };
+
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.textContent = 'Transmitting Dataset...';
+
+  try{
+    await fetch(SHEET_URL, {
+      method:'POST', mode:'no-cors',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(payload)
+    });
+  }catch(e){ }
+
+  document.querySelector('.form-layout-grid').style.display = 'none';
+  document.getElementById('successCard').classList.add('open');
+  window.scrollTo({top: document.getElementById('successCard').offsetTop - 60, behavior:'smooth'});
+}
+</script>
+</body>
+</html>
